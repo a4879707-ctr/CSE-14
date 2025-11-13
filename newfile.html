@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Shop Layout</title>
+  <style>
+    :root{ --accent:#ff6f61; --bg:#f7fafc; --card:#ffffff; --muted:#64748b; }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, Arial, sans-serif;margin:0;background:var(--bg);color:#0f172a}
+
+    /* TOP: two large columns (visually upside-down) */
+    .upside-row{display:flex;gap:20px;padding:24px;max-width:1100px;margin:28px auto;transform:rotate(180deg);}
+    .upside-col{flex:1;background:linear-gradient(135deg,#fff 0%, #f0f6ff 100%);border-radius:12px;min-height:160px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(15,23,42,0.06);padding:20px}
+    /* rotate content of the columns back so the link text is readable */
+    .upside-col > .inner{transform:rotate(180deg);text-align:center}
+    .amazon-link{display:inline-block;text-decoration:none;padding:12px 18px;border-radius:999px;background:var(--accent);color:white;font-weight:600}
+
+    /* navigation bar under the upside-row */
+    nav{max-width:1100px;margin:0 auto 18px auto;padding:8px 20px;background:transparent;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:700;font-size:1.05rem}
+    .nav-links{display:flex;gap:12px}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    .nav-links a:hover{background:#fff}
+
+    /* Products quadrant grid */
+    .products{max-width:1100px;margin:24px auto;padding:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:var(--card);border-radius:10px;box-shadow:0 8px 20px rgba(2,6,23,0.06);overflow:hidden;display:flex;flex-direction:column}
+    .card img{width:100%;height:220px;object-fit:cover;display:block}
+    .card-body{padding:12px 14px;display:flex;align-items:center;justify-content:space-between}
+    .price{font-weight:700;color:var(--accent)}
+    .title{color:#0f172a;font-size:0.95rem}
+
+    /* responsive */
+    @media (max-width:720px){
+      .upside-row{flex-direction:column;transform:none}
+      .upside-col > .inner{transform:none}
+      .products{grid-template-columns:repeat(2,1fr)}
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Two large columns (visually upside-down) -->
+  <section class="upside-row">
+    <div class="upside-col">
+      <div class="inner">
+        <h2>Shop on Amazon</h2>
+        <p style="margin:10px 0;color:var(--muted)">Get fast delivery &amp; great deals</p>
+        <a class="amazon-link" href="https://www.amazon.in" target="_blank" rel="noopener">Open Amazon</a>
+      </div>
+    </div>
+
+    <div class="upside-col">
+      <div class="inner">
+        <h2>Visit Amazon Deals</h2>
+        <p style="margin:10px 0;color:var(--muted)">Today's top offers</p>
+        <a class="amazon-link" href="https://www.amazon.in/gp/goldbox" target="_blank" rel="noopener">View Deals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation bar -->
+  <nav>
+    <div class="brand">My Mini Shop</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
+
+  <!-- Quadrant: 4 product cards -->
+  <main id="products" class="products">
+
+    <article class="card">
+      <img src="https://via.placeholder.com/800x500?text=Product+1" alt="Product 1">
+      <div class="card-body">
+        <div>
+          <div class="title">Classic Headphones</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Over-ear, comfortable</div>
+        </div>
+        <div class="price">₹1,799</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://via.placeholder.com/800x500?text=Product+2" alt="Product 2">
+      <div class="card-body">
+        <div>
+          <div class="title">Smart Watch</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Fitness + Notifications</div>
+        </div>
+        <div class="price">₹2,499</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://via.placeholder.com/800x500?text=Product+3" alt="Product 3">
+      <div class="card-body">
+        <div>
+          <div class="title">Bluetooth Speaker</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Portable, loud</div>
+        </div>
+        <div class="price">₹999</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://via.placeholder.com/800x500?text=Product+4" alt="Product 4">
+      <div class="card-body">
+        <div>
+          <div class="title">Wireless Mouse</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Ergonomic design</div>
+        </div>
+        <div class="price">₹449</div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- small footer -->
+  <footer style="max-width:1100px;margin:20px auto;padding:18px;text-align:center;color:var(--muted);font-size:0.9rem">
+    © My Mini Shop • sample layout made with HTML &amp; CSS
+  </footer>
+
+</body>
+</html>
